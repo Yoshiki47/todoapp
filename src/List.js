@@ -1,7 +1,7 @@
 import React from 'react'
 import Item from './Item'
 
-const List = () => {
+const List = ({todos}) => {
 
 
 // オブジェクト型の値を定義    
@@ -16,8 +16,11 @@ const List = () => {
 
     return (
         <ul>
-            <Item content={"課題をする"}/>
-            <Item content={"昼食をとる"}/>
+            {todos.map((todo, index) => {
+                return (
+                    <Item key={index} content={todo.content} />
+                )
+            })}
         </ul>
     )
 }
