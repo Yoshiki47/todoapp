@@ -1,32 +1,30 @@
 import React, {useState} from 'react'
 
-const Form = ({ todos, setTodos }) => {
+const Form = ({ addTodo }) => {
     const [value, setValue] = useState("")
+    
     const handleSubmit= (e) => {
         // formの内容をtodoの配列に追加する処理を書く
         e.preventDefault()
-        // console.log(...todos);
-        if (value == "") {
-            alert('内容が空です')
+
+        // もし、valueの値が空ならhandleSubmitの処理を中断する(関数の実行を止めるにはreturnすればそれ以降の関数の処理は実行されない)
+        if (!value.trim()) {
             return;
         }
-        setTodos([
-            ...todos,
-            {
-                content: value
-            }
-        ])
+
+        addTodo(value)        
+        // valueの値を空にする
         setValue("")
     }
     return (
         <form onSubmit={handleSubmit}>
             <input
-            value={value}
-            type="text"
-            onChange={e => {
-                // console.log(e.target.value)
-                setValue(e.target.value)
-            }}
+                value={value}
+                type="text"
+                onChange={e => {
+                    // console.log(e.target.value)
+                    setValue(e.target.value)
+                }}
             />
         </form>
     )
