@@ -21,7 +21,7 @@ const List = ({todos, deleteTodo}) => {
                     <Item
                         content={todo.content}
                         id={todo.id}
-                        key={todo.toString()}
+                        key={todo.id}
                         //? なぜここでdeletetodoを記述しているのか？
                         deleteTodo={deleteTodo}
                     />
