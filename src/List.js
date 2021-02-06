@@ -23,6 +23,7 @@ const List = ({todos, deleteTodo}) => {
                         id={todo.id}
                         key={todo.id}
                         //? なぜここでdeletetodoを記述しているのか？
+                        //* ListからItemコンポーネントに渡している(ItemでonClickイベントを発生させるため)
                         deleteTodo={deleteTodo}
                     />
                 )
