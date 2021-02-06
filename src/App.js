@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import shortid from 'shortid'
+import {nanoid} from 'nanoid'
 import Form from './Form'
 import List from './List'
 
@@ -14,13 +14,14 @@ const App = () => {
                     ...todos,
                     {
                         content,
-                        id: shortid.generate()
+                        id: nanoid()  // ランダムなidを作成
                     }
                 ])
         }
 
         const deleteTodo = id => {
-            setTodos(todos.filter(todo => todo.id !== id))
+            // 引数で受け取ったidとtodoにあるidが一致した時にそれを消す
+            setTodos(todos.filter(todo => todo.id !== id))　
         }
 
     // ここで設定したtodoをItemコンポーネントのcontentに表示できるようにする 
